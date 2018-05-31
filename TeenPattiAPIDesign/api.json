@@ -1,0 +1,77 @@
+[
+    {
+        "Event Name": "Login",
+        "Source": "Client",
+        "Destination": "Server",
+        "Trigger": "When user logs in the game",
+        "Data" : {
+            "Username": "String: name of the user",
+            "loginType": "Integer: (Facebook (0) | Guest(1)",
+            "fbAuthKey": "String | Optional: auth Key of user’s facebook account if user logs in as fbUser"
+        },
+        "Response Data": "String: userid"
+    },
+    {
+        "Event Name": "JoinGame",
+        "Source": "Client",
+        "Destination": "Server",
+        "Trigger": "User requests to join game",
+        "Data": {
+            "userId": "String: unique id of user",
+        },
+        "ResponseData":  "String: Unique table of Game table with empty seat "
+
+    }, {
+        "Event Name": "Blind",
+        "Source": "Client",
+        "Destination": "Server",
+        "Trigger": "When user plays blind",
+        "Data" : {
+            "userID": "String: Unique user Id",
+            "Amount": "Integer: money played by user"
+        },
+        "Response Data": "Integer: Total Amount raised in the table"
+    },
+    {
+        "Event Name": "Chaal",
+        "Source": "Client",
+        "Destination": "Server",
+        "Trigger": "When user plays Chaal",
+        "Data" : {
+            "userID": "String: Unique user Id",
+            "Amount": "Integer: money played by user"
+        },
+        "Response Data": "Integer: Total Amount raised in the table"
+    },
+    {
+        "Event Name": "Deal",
+        "Source": "Server",
+        "Destination": "Client",
+        "Trigger": "When the game starts and deal deals the card",
+        "Data" : {
+            "tableId": "String: Unique tableId",
+            "Cards": [{
+                "Userid": "user1",
+                "Cards": ["Ace-Diamond", "King-Diamond", "Queen-Diamond"]
+                }, {
+                    "Userid": "user2",
+                    "Cards": ["card1", "card2", "card3"]
+                },
+                "….same for all users on the table"
+            ]
+        },
+        "Response Data": null
+
+    },
+    {
+        "Event Name": "SideShow",
+        "Source": "Client",
+        "Destination": "Client",
+        "Trigger": "When the user asks previous user for Show",
+        "Data": {
+            "senderId": "String: Unique userId",
+            "receiverId": "String: Unique userId"
+        },
+        "Response Data": "Boolean: true if another user accepts show request"
+    }
+]

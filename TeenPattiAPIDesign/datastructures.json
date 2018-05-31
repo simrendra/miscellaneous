@@ -1,0 +1,16 @@
+[
+    { 
+        "Name": "String: Name id user",
+        "userId": "Unique id of user"
+    
+    },
+    "GameTable": {
+        "gameId": "String: unique id of game",
+        "Players": "Array of string: List of userId’s of all users in the game "
+        }
+        
+        "Games": {
+            "gameIds": "Array of String: List of all active games on the platform"
+        }
+]
+
